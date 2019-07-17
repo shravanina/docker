@@ -29,6 +29,11 @@ pipeline {
         sh 'docker push pavan9999/create:docker'
         }
       }
+    }
+   stage('Run Docker Container') {
+   steps {
+     sh 'docker run -dti --name project -p 8082 pavan9999/create:docker'
+   }
   }
 }
 }
