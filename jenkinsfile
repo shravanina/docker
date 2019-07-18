@@ -20,19 +20,19 @@ pipeline {
     }
     stage('Docker Build') {
       steps {
-        sh 'docker build -t anudeepdev9/create:docker .'
+        sh 'docker build -t anudeerpdev9/create:docker .'
       }
     }
     stage('Push image') {
       steps {
         withDockerRegistry([credentialsId: 'docker-hub', url: "https://index.docker.io/v1/"]) {
-        sh 'docker push anudeepedev9/create:docker'
+        sh 'docker push anudeerpdev9/create:docker'
         }
       }
     }
    stage('Run Docker Container') {
    steps {
-     sh 'docker run -dti --name project -p 8761:8761 anudeepdev9/create:docker'
+     sh 'docker run -dti --name project -p 8761:8761 anudeerpdev9/create:docker'
    }
   }
 }
